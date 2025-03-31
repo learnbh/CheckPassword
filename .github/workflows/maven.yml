@@ -10,6 +10,7 @@ name: CheckPassword
 
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   build:
