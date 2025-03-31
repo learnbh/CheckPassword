@@ -68,4 +68,15 @@ class CheckPasswordTest {
     void containsSpecialCaracters_ShouldReturnFalse_forWord_assword() {
         assertFalse(new CheckPassword(passwordWrong1).containsSpecialCaracters());
     }
+
+    @Test
+    void generatePassword_ShouldReturnCorrectPassword() {
+        String password = new CheckPassword().getPassword();
+        System.out.println("passwort: "+password);
+        assertTrue(new CheckPassword(password).length(8));
+        assertTrue(new CheckPassword(password).containsNumber());
+        assertTrue(new CheckPassword(password).containsUpperAndLowerLetters());
+        assertTrue(new CheckPassword(password).containsSpecialCaracters());
+        assertTrue(new CheckPassword(password).isNotLike());
+    }
 }
