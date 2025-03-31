@@ -36,8 +36,20 @@ public class CheckPassword implements ICheckPassword{
         return true;
     }
 
+    @Override
+    public boolean containsSpecialCaracters() {
+        char[] specialCaracters = this.getPassword().toCharArray();
+        for(char c : specialCaracters){
+            if(!Character.isLetterOrDigit(c)){
+                return true;
+            }
+        }
+        return false;
+//        Pattern pattern = Pattern.compile("[!€@#$%&*()_+=|<>?{}\\[\\]/~-]+");
+//        return (pattern.matcher(this.getPassword()).find());
+    }
 
-// Getter and Setter
+    // Getter and Setter
     public String getPassword() {
         return password;
     }

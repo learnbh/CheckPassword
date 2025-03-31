@@ -15,7 +15,7 @@ class CheckPasswordTest {
     void setUp() {
         passwordEqual = "Password1";
         passwordWrong1 = "assword";
-        passwordCorrect = "Wort81Pass";
+        passwordCorrect = "Wort8_Pass";
     }
 
     @Test
@@ -58,5 +58,14 @@ class CheckPasswordTest {
     @Test
     void isNotLike_ShouldReturnFalse_forWord_Password1() {
         assertFalse(new CheckPassword(passwordEqual).isNotLike());
+    }
+
+    @Test
+    void containsSpecialCaracters_ShouldReturnTrue_forWord_Wort8_Pass() {
+        assertTrue(new CheckPassword(passwordCorrect).containsSpecialCaracters());
+    }
+    @Test
+    void containsSpecialCaracters_ShouldReturnFalse_forWord_assword() {
+        assertFalse(new CheckPassword(passwordWrong1).containsSpecialCaracters());
     }
 }

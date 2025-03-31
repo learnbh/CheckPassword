@@ -6,4 +6,5 @@ public interface ICheckPassword {
     boolean containsNumber();
     boolean containsUpperAndLowerLetters();
     boolean isNotLike();
+    boolean containsSpecialCaracters();
 }
